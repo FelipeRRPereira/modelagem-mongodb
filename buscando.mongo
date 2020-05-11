@@ -1,0 +1,8 @@
+// busca por subdocumento
+db.autores.find({ "artigos.slug": "projeto-caelum-nas-faculdades" })
+
+// busca por subdocumento informando retornos
+db.autores.find({ "artigos.slug": "projeto-caelum-nas-faculdades"}, { "artigos.titulo":1, "artigos.conteudo":1 })
+
+// busca por atributo do documento informando retornos
+db.autores.find({ "nome": "Felipe Pereira" }, { "artigos.titulo":1 , "artigos.conteudo":1})

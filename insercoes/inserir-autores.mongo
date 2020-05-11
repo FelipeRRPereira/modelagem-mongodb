@@ -1,0 +1,21 @@
+db.autores.insertMany([
+  {
+    nome: "Yuri Matheus",
+    descricao: "Instrutor na Alura",
+    email: "yuri@alura.com.br",
+    senha: "senha",
+  },
+  {
+    nome: "Felipe Nascimento",
+    descricao: "Escritor do blog da Alura",
+    email: "felipe@alura.com.br",
+    senha: "senha",
+  }
+]);
+
+db.autores.insertOne({
+  nome: "Felipe Pereira",
+  descricao: "Desenvolvedor Node.js - PL/SQL - Flutter",
+  email: "felipe@tst.com.br",
+  senha: "felipe123",
+});

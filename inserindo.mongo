@@ -1,0 +1,57 @@
+db.infoAutores.insertOne({
+  nome: "Carla",
+  email: "carla@teste.com.br",
+  senha: "teste",
+  descricao: "Instrutora e desenvolvedora."
+})
+
+// Inicio - Executar no prompt mongo
+var autorInfo = db.infoAutores.findOne({
+  email: "carla@teste.com.br"
+});
+
+db.artigos.insertOne({
+  autor: {
+    nome: autorInfo.nome,
+    descricao: autorInfo.descricao,
+    id_info: autorInfo._id
+  },
+  slug: "dicas-politicas-de-senha",
+  titulo: "Alguma coisa sobre artigos de politica de senha",
+  conteudo: "Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren Loren.",
+  dataCriacao: ISODate("2020-10-04"),
+  categorias: [
+    "Arquitetura",
+    "Programação"
+  ],
+  comentarios: []
+})
+// Fim
+
+// Inicio - executar no prompt do mongo
+var documento = db.artigos.findOneAndUpdate({
+  slug: "dicas-politicas-de-senha"
+}, {
+  $push: {
+    comentarios: {
+      $each: [
+        {
+          nome: "Felipe",
+          email: "felipe@teste.com.br",
+          texto: "Artigo top!!",
+          data: ISODate("2020-10-04")
+        }
+      ],
+      $position: 0
+    }
+  }
+}, { returnNewDocument: true });
+
+db.comentarios.insertOne({
+  id_artigo: documento._id,
+  nome: "Felipe",
+  email: "felipe@teste.com.br",
+  texto: "Artigo top!!",
+  data: ISODate("2020-10-04")
+})
+// Fim

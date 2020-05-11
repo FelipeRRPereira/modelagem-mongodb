@@ -1,0 +1,14 @@
+db.artigos.insertOne({
+  autor: {
+    nome: "Felipe Pereira",
+    descricao: "Desenvolvedor Node.js - PL/SQL - Flutter",
+    email: "felipe@tst.com.br",
+    senha: "felipe123",
+  },
+  slug: "faculdade-e-diploma-sao-necessarios-para-programar",
+  titulo: "Faculdade e diploma são necessários para programar?",
+  conteudo: "Será que precisamos de um diploma de uma renomada faculdade para ter uma carreira em tecnologia, em especial na programação?",
+  dataCriado: ISODate("2019-08-06"),
+})
+
+db.artigos.find({ "slug": "faculdade-e-diploma-sao-necessarios-para-programar"})

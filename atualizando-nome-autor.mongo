@@ -1,0 +1,16 @@
+db.infoAutores.update({
+  nome: "Felipe Pereira"
+},
+{
+  $set: {
+    nome: "Felipe Ricardo Ribeiro Pereira"
+  }
+})
+
+db.artigos.update({
+  "autor.nome": "Felipe Pereira"
+},{
+  $set: {
+    "autor.nome": "Felipe Ricardo Ribeiro Pereira"
+  }
+}, { multi: true })

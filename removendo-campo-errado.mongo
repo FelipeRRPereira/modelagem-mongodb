@@ -1,0 +1,5 @@
+db.artigos.find({ "autor.nome": "Felipe Ricardo Ribeiro Pereira" }).forEach(function(artigo) {
+  
+  delete artigo.nome;
+  db.artigos.save(artigo)
+})
